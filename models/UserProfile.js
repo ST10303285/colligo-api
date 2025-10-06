@@ -5,7 +5,9 @@ const userSettingsSchema = new mongoose.Schema({
   age: Number,
   gender: String,
   email: String,
-  phone: String
+  number: String
+  imageUrl: String
+
 });
 
 module.exports = mongoose.model('UserSettings', userSettingsSchema);
