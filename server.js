@@ -38,10 +38,10 @@ app.get('/api/settings/:email', async (req, res) => {
 // Create or update user settings
 app.post('/api/settings', async (req, res) => {
   try {
-    const { name, age, gender, email, phone } = req.body;
+    const { name, age, gender, email, number, imageUrl } = req.body;
     if (!email) return res.status(400).json({ message: 'Email is required' });
 
-    await db.collection('userSettings').doc(email).set({ name, age, gender, email, phone });
+    await db.collection('userSettings').doc(email).set({ name, age, gender, email, number, imageUrl });
     res.json({ message: 'User settings created/updated' });
   } catch (err) {
     res.status(500).json({ error: err.message });
