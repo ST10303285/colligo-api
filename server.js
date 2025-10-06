@@ -3,13 +3,15 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 require('dotenv').config();
 
-const serviceAccount = require('./colligo-125cd-firebase-adminsdk-fbsvc-ed2a6178f3.json');
+const admin = require('firebase-admin');
 
-// Initialize Firebase Admin
+const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://colligo-125cd-default-rtdb.firebaseio.com"
+  databaseURL: process.env.DATABASE_URL
 });
+
 
 const db = admin.firestore();
 
